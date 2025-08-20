@@ -4,7 +4,7 @@ import AboutImage from "../assets/About.jpg"; // Better to import image directly
 
 export default function Hero() {
   return (
-    <section id="home" className="relative overflow-hidden">
+    <section id="home" className="relative overflow-hidden ">
       <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-4 py-16 md:grid-cols-2 md:py-24">
         {/* Text content */}
         <div>

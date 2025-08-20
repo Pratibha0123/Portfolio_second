@@ -1,19 +1,24 @@
-import { Code2 } from "lucide-react";
+import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs, FaGitAlt } from "react-icons/fa";
+import { SiExpress } from "react-icons/si";
+import { IoLogoFirebase } from "react-icons/io5";
+
+
 
 export const skillsPrimary = [
-  { icon: Code2, label: "HTML" },
-  { icon: Code2, label: "CSS" },
-  { icon: Code2, label: "JavaScript" },
-  { icon: Code2, label: "React" },
-  { icon: Code2, label: "Next.js" },
-  { icon: Code2, label: "TypeScript" },
+    { label: "HTML", icon: FaHtml5 },
+    { label: "CSS", icon: FaCss3Alt },
+    { label: "JavaScript", icon: FaJsSquare },
+    { label: "React.js", icon: FaReact },
+    { label: "Next.js", icon: FaReact },
+    { label: "TypeScript", icon: FaReact },
 ];
 
 export const skillsSecondary = [
-  { icon: Code2, label: "Node.js" },
-  { icon: Code2, label: "Express" },
-  { icon: Code2, label: "REST APIs" },
-  { icon: Code2, label: "Git / GitHub" },
-  { icon: Code2, label: "Redux" },
-  { icon: Code2, label: "Responsive UI" },
+    { label: "Node.js", icon: FaNodeJs },
+    { label: "Express.js", icon: SiExpress },
+    { label: "REST APIs", icon: FaReact },
+    { label: "Firebase", icon: IoLogoFirebase },
+    { label: "GitHub", icon: FaGitAlt },
+    { label: "Redux", icon: FaReact },
+    { label: "Responsive UI", icon: FaReact },
 ];

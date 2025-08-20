@@ -21,7 +21,7 @@ export default function Blog() {
   };
 
   return (
-    <section className="bg-gray-900 py-12 px-6">
+    <section className="border-white/5 py-12 px-6">
       <h2 className="text-3xl font-bold text-white mb-8 text-center">
         Latest Blogs
       </h2>
