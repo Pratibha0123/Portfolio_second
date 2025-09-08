@@ -8,7 +8,7 @@ export default function Contact() {
     email: "",
     message: "",
   });
-  const [status, setStatus] = useState(""); // success or error messages
+  const [status, setStatus] = useState(""); 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,7 +17,6 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Basic frontend validation
     if (!formData.name || !formData.email || !formData.message) {
       setStatus("Please fill all fields.");
       return;
@@ -45,7 +44,6 @@ export default function Contact() {
 
         <Card className="p-6 mt-8">
           <form onSubmit={handleSubmit} className="grid gap-6">
-            {/* Name */}
             <div className="relative">
               <input
                 type="text"
@@ -61,7 +59,6 @@ export default function Contact() {
               </label>
             </div>
 
-            {/* Email */}
             <div className="relative">
               <input
                 type="email"
@@ -77,7 +74,7 @@ export default function Contact() {
               </label>
             </div>
 
-            {/* Message */}
+            
             <div className="relative">
               <textarea
                 name="message"
@@ -93,7 +90,6 @@ export default function Contact() {
               </label>
             </div>
 
-            {/* Submit */}
             <button
               type="submit"
               className="rounded-lg bg-primary px-6 py-2 font-medium text-white hover:bg-primary/80 transition-colors"
@@ -101,7 +97,6 @@ export default function Contact() {
               Send Message
             </button>
 
-            {/* Status Message */}
             {status && (
               <p
                 className={`mt-2 text-sm ${

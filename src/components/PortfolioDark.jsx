@@ -308,7 +308,7 @@ export default function PortfolioDark() {
         </div>
       </section>
 
-      {/* BLOG */}
+     
       <section id="blog" className="border-t border-white/5 py-16 md:py-20">
         <div className="mx-auto max-w-6xl px-4">
           <div className="mb-8 flex items-center justify-between">
@@ -328,7 +328,7 @@ export default function PortfolioDark() {
         </div>
       </section>
 
-      {/* CONTACT */}
+    
       <section id="contact" className="border-t border-white/5 py-16 md:py-20">
         <div className="mx-auto max-w-6xl px-4">
           <div className="mb-8 flex items-center justify-between">
@@ -393,7 +393,7 @@ export default function PortfolioDark() {
         </div>
       </section>
 
-      {/* FOOTER */}
+      
       <footer className="border-t border-white/5 py-10">
         <div className="mx-auto max-w-6xl px-4 text-center text-sm text-white/60">
           © {new Date().getFullYear()} Pratibha Sharma. All rights reserved.

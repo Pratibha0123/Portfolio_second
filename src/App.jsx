@@ -1,24 +1,45 @@
-import React from 'react'
-import AOS from "aos"
+import React from "react";
+import AOS from "aos";
 import "aos/dist/aos.css";
-import PortfolioDark from './pages/PortfolioDark';
+import { Routes, Route } from "react-router-dom";
+import PortfolioDark from "./pages/PortfolioDark";
+import Services from "./components/Services";
+import Skills from "./components/Skills";
+import SkillPage from "./components/SkillPage";
+
+import Projects from "./components/Projects";
+import Blog from "./components/Blog";
+import Contact from "./components/Contact";
+import About from "./components/About";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const App = () => {
-  React.useEffect(()=>{
+  React.useEffect(() => {
     AOS.init({
-        duration:700,
-        easing:"ease-in-sine",
-        offset:100,
-      });
-  },[]);
+      duration: 700,
+      easing: "ease-in-sine",
+      offset: 100,
+    });
+  }, []);
 
   return (
-    <>
-      <div className="overflow-hidden px-4 sm:px-6 lg:px-12 bg-[#0b1018]"> 
-        <PortfolioDark/>
-      </div>
-    </>
-  )
+    <div className="overflow-hidden px-4 sm:px-6 lg:px-12 bg-[#0b1018]">
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<PortfolioDark />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/skill" element={<Skills />} />
+        <Route path="/skills" element={<SkillPage />} />
+
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+      <Footer />
+    </div>
+  );
 };
 
 export default App;

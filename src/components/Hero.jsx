@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
-import AboutImage from "../assets/About.jpg"; // Better to import image directly
+import AboutImage from "../assets/About.jpg"; 
 
 export default function Hero() {
   return (
     <section id="home" className="relative overflow-hidden ">
       <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-4 py-16 md:grid-cols-2 md:py-24">
-        {/* Text content */}
+        
         <div>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -37,7 +37,6 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Profile image */}
         <div className="relative mx-auto h-64 w-64 md:h-72 md:w-72">
           <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_60%_40%,rgba(168,85,247,0.35),rgba(59,130,246,0.35)_60%,transparent_70%)] blur-2xl" />
           <div className="relative h-full w-full rounded-full border border-white/10 bg-gradient-to-b from-white/10 to-white/0 p-1">

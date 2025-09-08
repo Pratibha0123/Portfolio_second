@@ -9,7 +9,6 @@ export default function Skills() {
         <SectionTitle>Skills</SectionTitle>
 
         <div className="mt-8 grid gap-6 md:grid-cols-2">
-          {/* Frontend Skills */}
           <Card className="p-6">
             <p className="mb-4 text-sm uppercase tracking-wider text-white/60">
               Frontend
@@ -27,7 +26,6 @@ export default function Skills() {
             </div>
           </Card>
 
-          {/* Backend & Tools Skills */}
           <Card className="p-6">
             <p className="mb-4 text-sm uppercase tracking-wider text-white/60">
               Backend & Tools

@@ -1,49 +1,60 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { nav } from "../data/navLinks";
+import { HiMenu, HiX } from "react-icons/hi";
 
 export default function Navbar() {
-  const [active, setActive] = useState("");
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPos = window.scrollY + 200; // offset for header
-      nav.forEach((n) => {
-        const section = document.querySelector(n.href);
-        if (section) {
-          if (
-            scrollPos >= section.offsetTop &&
-            scrollPos < section.offsetTop + section.offsetHeight
-          ) {
-            setActive(n.href);
-          }
-        }
-      });
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/5 bg-[#0b1018]/70 backdrop-blur-lg">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        <a href="#about" className="flex items-center gap-2 font-semibold text-white">
+        <NavLink to="/" className="flex items-center gap-2 font-semibold text-white">
           Pratibha Sharma
-        </a>
+        </NavLink>
+
         <nav className="hidden gap-6 text-sm md:flex">
           {nav.map((n) => (
-            <a
+            <NavLink
               key={n.label}
-              href={n.href}
-              className={`transition-colors ${
-                active === n.href ? "text-primary font-medium" : "text-white/70 hover:text-white"
-              }`}
+              to={n.href}
+              className={({ isActive }) =>
+                isActive
+                  ? "text-indigo-400 font-medium"
+                  : "text-white/70 hover:text-white"
+              }
             >
               {n.label}
-            </a>
+            </NavLink>
           ))}
         </nav>
+
+        <button
+          className="md:hidden text-white text-2xl focus:outline-none"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          {menuOpen ? <HiX /> : <HiMenu />}
+        </button>
       </div>
+
+      {menuOpen && (
+        <nav className="md:hidden bg-[#0b1018]/95 backdrop-blur-lg flex flex-col gap-4 px-6 py-4 border-t border-white/5 animate-fade-in">
+          {nav.map((n) => (
+            <NavLink
+              key={n.label}
+              to={n.href}
+              onClick={() => setMenuOpen(false)}
+              className={({ isActive }) =>
+                isActive
+                  ? "text-indigo-400 font-medium"
+                  : "text-white/70 hover:text-white"
+              }
+            >
+              {n.label}
+            </NavLink>
+          ))}
+        </nav>
+      )}
     </header>
   );
 }

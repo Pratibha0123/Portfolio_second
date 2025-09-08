@@ -1,4 +1,3 @@
-
 import { FaLaptopCode, FaPenNib, FaMobileAlt, FaServer } from "react-icons/fa";
 import SectionTitle from "./SectionTitle";
 
@@ -31,18 +30,22 @@ const services = [
 
 const Services = () => {
   return (
-    <section id="services" className="py-16 md:py-24 border-white/5">
+    <section id="services" className="py-16 md:py-24bg-[#0b1018]">
       <div className="container mx-auto px-6 sm:px-12">
         <SectionTitle>MY SERVICES</SectionTitle>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mt-10">
           {services.map((service) => (
             <div
               key={service.id}
-              className="bg-gray-800 p-8 rounded-xl hover:scale-105 hover:shadow-2xl transition-all duration-300 text-center"
+              className="bg-gradient-to-tr from-gray-800 to-gray-700 p-8 rounded-2xl hover:scale-105 hover:shadow-2xl transition-all duration-300 text-center"
             >
-              <div className="flex justify-center mb-4">{service.icon}</div>
-              <h3 className="text-xl font-semibold mb-2 ">{service.title}</h3>
-              <p className="text-gray-300">{service.description}</p>
+              <div className="flex justify-center mb-4">
+                <div className="p-4 bg-gray-900 rounded-full inline-block">
+                  {service.icon}
+                </div>
+              </div>
+              <h3 className="text-xl font-semibold mb-3 text-white">{service.title}</h3>
+              <p className="text-gray-300 text-sm">{service.description}</p>
             </div>
           ))}
         </div>
