@@ -1,7 +1,7 @@
-import Post1 from './images/blog/b1.jpg'
-import Post2 from './images/blog/b4.jpg'
-import Post3 from './images/blog/post3.jpg'
-import Post4 from './images/blog/post4.jpg'
+import Post1 from './images/blog/b1.jpg';
+import Post2 from './images/blog/b4.jpg';
+import Post3 from './images/blog/b3.jpg';
+import Post4 from './images/blog/b2.png';
 
 export const blogs = [{
         title: "The Cloud Computing Revolution",
