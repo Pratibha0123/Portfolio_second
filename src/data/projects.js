@@ -66,6 +66,34 @@ export const projects1 = [{
     //   demo: "https://food-ten-rosy.vercel.app",
     //   code: "https://github.com/Pratibha0123/Foodie_Flyer",
     // }
+    {
+        title: "tour_india",
+        description: "A business website with a custom CMS and blazing-fast performance.",
+        image: tour_india,
+        demo: "https://food-ten-rosy.vercel.app",
+        code: "https://github.com/Pratibha0123/tour_india",
+    },
+    {
+        title: " Doremon",
+        description: "A business website with a custom CMS and blazing-fast performance.",
+        image: Doramone,
+        demo: "https://food-ten-rosy.vercel.app",
+        code: "https://github.com/Pratibha0123/Doremon",
+    },
+    {
+        title: "Portfolio",
+        description: "A business website with a custom CMS and blazing-fast performance.",
+        image: portfolio,
+        demo: "https://pratibha0123.github.io/First_Protfolio/",
+        code: "https://github.com/Pratibha0123/Foodie_Flyer",
+    },
+    {
+        title: "Shop Cart",
+        description: "A business website with a custom CMS and blazing-fast performance.",
+        image: ShopCart,
+        demo: "https://shop-cart-wine.vercel.app/",
+        code: "https://github.com/Pratibha0123/Foodie_Flyer",
+    }
 
 ];
 export const projects2 = [
