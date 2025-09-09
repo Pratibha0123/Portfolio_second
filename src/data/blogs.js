@@ -1,7 +1,9 @@
-import Post1 from './images/blog/b1.jpg';
-import Post2 from './images/blog/b4.jpg';
-import Post3 from './images/blog/b3.jpg';
-import Post4 from './images/blog/b2.png';
+import Post1 from './images/blog//CloudComputingRevolution.jpg';
+import Post2 from './images/blog/deepseek.png';
+import Post3 from './images/blog/UIandUX.jpg';
+import Post4 from './images/blog/Cloud computing.jpg';
+import Post5 from './images/blog/WebDev.png';
+
 
 export const blogs = [{
         title: "The Cloud Computing Revolution",
@@ -26,5 +28,11 @@ export const blogs = [{
         excerpt: "Cloud computing is a model for enabling convenient, on-demand network access to a shared pool of configurable computing resources (such as networks, servers, storage, applications, and services) that can be rapidly provisioned.",
         image: Post4,
         link: "https://medium.com/@sharmapratibha0123/cloud-computing-ce9607e1aeaf",
+    },
+    {
+        title: "Web development in 2024 has significantly evolved with the integration of AI",
+        excerpt: "Web development in 2024 has significantly evolved with the integration of AI technologies. AI is now central to many aspects of web development, enhancing both the efficiency of developers and the user experience. Here are some key ways AI is influencing web development in 2024:",
+        image: Post5,
+        link: "https://medium.com/@sharmapratibha0123/web-development-in-2024-has-significantly-evolved-with-the-integration-of-ai-technologies-c3e3248aceaa",
     },
 ];

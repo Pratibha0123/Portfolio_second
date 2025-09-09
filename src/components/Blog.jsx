@@ -46,11 +46,11 @@ export default function Blog() {
   const renderBlogCard = (blog, index) => (
     <div key={index} className="px-3">
       <div className="bg-Rich-Black rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
-        <div className="h-48 w-full overflow-hidden">
+           <div className="relative w-full overflow-hidden flex items-center justify-center bg-black">
           <img
             src={blog.image}
             alt={blog.title}
-            className="w-full h-full object-cover"
+            className="w-full h-60 object-cover transition-transform duration-500 group-hover:scale-105"
           />
         </div>
 
