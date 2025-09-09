@@ -1,4 +1,3 @@
-
 import Slider from "react-slick";
 import { blogs } from "../data/blogs";
 import "slick-carousel/slick/slick.css";
@@ -15,8 +14,11 @@ export default function Blog() {
     autoplaySpeed: 2500,
     pauseOnHover: true,
     responsive: [
+      { breakpoint: 1280, settings: { slidesToShow: 2 } },
       { breakpoint: 1024, settings: { slidesToShow: 2 } },
-      { breakpoint: 640, settings: { slidesToShow: 1 } },
+      { breakpoint: 768, settings: { slidesToShow: 1 } },
+      { breakpoint: 600, settings: { slidesToShow: 1, centerMode: true, centerPadding: "40px" } },
+      { breakpoint: 480, settings: { slidesToShow: 1, centerMode: true, centerPadding: "20px" } },
     ],
   };
 
@@ -38,7 +40,6 @@ export default function Blog() {
                 />
               </div>
 
-          
               <div className="p-4">
                 <h3 className="text-lg font-semibold text-white truncate">
                   {blog.title}
@@ -57,4 +58,3 @@ export default function Blog() {
     </section>
   );
 }
-

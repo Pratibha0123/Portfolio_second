@@ -6,7 +6,7 @@ import {
   Layers,
   Terminal,
   Wrench,
-} from "lucide-react"; // icons
+} from "lucide-react"; 
 
 const skills = [
   {
