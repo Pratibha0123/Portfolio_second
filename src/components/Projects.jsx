@@ -1,40 +1,53 @@
+import { useEffect, useState } from "react";
 import Card from "./Card";
 import SectionTitle from "./SectionTitle";
-import { projects1, projects2 } from "../data/projects";
+import { projects1 } from "../data/projects";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 export default function Projects() {
-  const sliderSettings = {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreen = () => setIsMobile(window.innerWidth <= 580);
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
+
+  const desktopSliderSettings = {
     dots: false,
     infinite: true,
     speed: 600,
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2500,
+    autoplaySpeed: 2000,
     responsive: [
-      { breakpoint: 1280, settings: { slidesToShow: 2 } }, // large screens
-      { breakpoint: 1024, settings: { slidesToShow: 2 } }, // tablets landscape
-      { breakpoint: 768, settings: { slidesToShow: 1 } },  // tablets portrait
-      {
-        breakpoint: 640, // mobile
-        settings: {
-          slidesToShow: 1,
-          centerMode: false,   // disable centering
-          centerPadding: "0px" // full width
-        },
-      },
+      { breakpoint: 1024, settings: { slidesToShow: 2 } },
+      { breakpoint: 968, settings: { slidesToShow: 2 } },
+      { breakpoint: 768, settings: { slidesToShow: 1 } },
     ],
+  };
+
+  const mobileSliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 600,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    centerMode: false,
+    centerPadding: "0px", 
+    arrows: false, 
   };
 
   const renderProjectSlide = (project) => (
     <Card
       key={project.title}
-      className="project-card group flex flex-col overflow-hidden rounded-xl border border-white/10 bg-gray-900/60 backdrop-blur-md shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 mx-3"
+      className="group flex flex-col overflow-hidden rounded-xl border border-white/10 bg-gray-900/60 backdrop-blur-md shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 mx-3"
     >
-      {/* Image */}
+      
       <div className="relative h-52 w-full overflow-hidden">
         <img
           src={project.image}
@@ -43,7 +56,7 @@ export default function Projects() {
         />
       </div>
 
-      {/* Content */}
+   
       <div className="flex flex-col flex-1 p-5">
         <h3 className="mb-2 text-xl font-semibold text-white group-hover:text-blue-400 transition-colors duration-300">
           {project.title}
@@ -52,7 +65,7 @@ export default function Projects() {
           {project.description}
         </p>
 
-        {/* Links */}
+        
         <div className="mt-5 flex gap-3">
           {project.demo && (
             <a
@@ -82,18 +95,19 @@ export default function Projects() {
   return (
     <section id="projects" className="border-t border-white/10 py-16 md:py-20">
       <div className="mx-auto max-w-7xl px-6">
-        {/* Section Title */}
         <SectionTitle className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">
           My Projects
         </SectionTitle>
 
-        {/* First Projects Row */}
-        <Slider {...sliderSettings}>{projects1.map(renderProjectSlide)}</Slider>
-
-        <div className="my-12"></div>
-
-        {/* Second Projects Row */}
-        {/* <Slider {...sliderSettings}>{projects2.map(renderProjectSlide)}</Slider> */}
+        {isMobile ? (
+          <Slider {...mobileSliderSettings}>
+            {projects1.map(renderProjectSlide)}
+          </Slider>
+        ) : (
+          <Slider {...desktopSliderSettings}>
+            {projects1.map(renderProjectSlide)}
+          </Slider>
+        )}
       </div>
     </section>
   );

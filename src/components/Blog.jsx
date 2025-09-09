@@ -1,10 +1,20 @@
+import { useEffect, useState } from "react";
 import Slider from "react-slick";
 import { blogs } from "../data/blogs";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 export default function Blog() {
-  const settings = {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreen = () => setIsMobile(window.innerWidth <= 580);
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
+
+  const desktopSettings = {
     dots: false,
     infinite: true,
     speed: 600,
@@ -14,13 +24,50 @@ export default function Blog() {
     autoplaySpeed: 2500,
     pauseOnHover: true,
     responsive: [
-      { breakpoint: 1280, settings: { slidesToShow: 2 } },  // large screens
-      { breakpoint: 1024, settings: { slidesToShow: 2 } },  // tablets landscape
-      { breakpoint: 768, settings: { slidesToShow: 1 } },   // tablets portrait
-      { breakpoint: 640, settings: { slidesToShow: 1 } },   // <= 640px always 1 card
-      { breakpoint: 480, settings: { slidesToShow: 1 } },   // small phones
+      { breakpoint: 1280, settings: { slidesToShow: 2 } },
+      { breakpoint: 1024, settings: { slidesToShow: 2 } },
+      { breakpoint: 768, settings: { slidesToShow: 1 } },
     ],
   };
+
+  const mobileSettings = {
+    dots: true,
+    infinite: true,
+    speed: 600,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2500,
+    arrows: false, 
+    centerMode: false,
+    centerPadding: "0px",
+  };
+
+  const renderBlogCard = (blog, index) => (
+    <div key={index} className="px-3">
+      <div className="bg-Rich-Black rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+        <div className="h-48 w-full overflow-hidden">
+          <img
+            src={blog.image}
+            alt={blog.title}
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        <div className="p-4">
+          <h3 className="text-lg font-semibold text-white truncate">
+            {blog.title}
+          </h3>
+          <p className="text-gray-400 text-sm mt-2 line-clamp-3 overflow-hidden">
+            {blog.excerpt}
+          </p>
+          <button className="mt-4 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-500 transition text-center">
+            Read More
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <section className="border-white/5 py-12 px-6">
@@ -28,33 +75,11 @@ export default function Blog() {
         Latest Blogs
       </h2>
 
-      <Slider {...settings}>
-        {blogs.map((blog, index) => (
-          <div key={index} className="px-3">
-            <div className="bg-Rich-Black rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
-              <div className="h-48 w-full overflow-hidden">
-                <img
-                  src={blog.image}
-                  alt={blog.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              <div className="p-4">
-                <h3 className="text-lg font-semibold text-white truncate">
-                  {blog.title}
-                </h3>
-                <p className="text-gray-400 text-sm mt-2 line-clamp-3 overflow-hidden">
-                  {blog.excerpt}
-                </p>
-                <button className="mt-4 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-500 transition text-center">
-                  Read More
-                </button>
-              </div>
-            </div>
-          </div>
-        ))}
-      </Slider>
+      {isMobile ? (
+        <Slider {...mobileSettings}>{blogs.map(renderBlogCard)}</Slider>
+      ) : (
+        <Slider {...desktopSettings}>{blogs.map(renderBlogCard)}</Slider>
+      )}
     </section>
   );
 }
