@@ -48,13 +48,14 @@ export default function Projects() {
       className="group flex flex-col overflow-hidden rounded-xl border border-white/10 bg-gray-900/60 backdrop-blur-md shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 mx-3"
     >
       
-      <div className="relative h-52 w-full overflow-hidden">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:rotate-1"
-        />
-      </div>
+     <div className="relative w-full overflow-hidden flex items-center justify-center bg-black">
+  <img
+    src={project.image}
+    alt={project.title}
+    className="max-h-60 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
+  />
+</div>
+
 
    
       <div className="flex flex-col flex-1 p-5">
