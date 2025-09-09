@@ -14,8 +14,10 @@ export default function Projects() {
     autoplaySpeed: 2500,
     responsive: [
       { breakpoint: 1024, settings: { slidesToShow: 2 } },
-      { breakpoint: 768, settings: { slidesToShow: 2 } },
+      { breakpoint: 768, settings: { slidesToShow: 1 } },
       { breakpoint: 580, settings: { slidesToShow: 1 } },
+      { breakpoint: 480, settings: { slidesToShow: 1 } },
+
     ],
   };
 
@@ -24,7 +26,7 @@ export default function Projects() {
       key={project.title}
       className="group flex flex-col overflow-hidden rounded-xl border border-white/10 bg-gray-900/60 backdrop-blur-md shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 mx-3"
     >
-      {/* Image */}
+     
       <div className="relative h-52 w-full overflow-hidden">
         <img
           src={project.image}
@@ -33,7 +35,7 @@ export default function Projects() {
         />
       </div>
 
-      {/* Content */}
+    
       <div className="flex flex-col flex-1 p-5">
         <h3 className="mb-2 text-xl font-semibold text-white group-hover:text-blue-400 transition-colors duration-300">
           {project.title}
@@ -42,7 +44,7 @@ export default function Projects() {
           {project.description}
         </p>
 
-        {/* Buttons */}
+       
         <div className="mt-5 flex gap-3">
           {project.demo && (
             <a

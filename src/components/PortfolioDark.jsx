@@ -107,7 +107,7 @@ const posts = [
   { title: "Cloud Computing Essentials", image: "https://placehold.co/640x360/png?text=Cloud" },
 ];
 
-// Simple glass card
+
 // eslint-disable-next-line react/prop-types
 const Card = ({ children, className = "" }) => (
   <div
@@ -130,7 +130,7 @@ const SectionTitle = ({ children }) => (
 export default function PortfolioDark() {
   return (
     <div className="min-h-screen w-full bg-[#0b1018] text-white">
-      {/* NAVBAR */}
+     
       <header className="sticky top-0 z-50 border-b border-white/5 bg-[#0b1018]/70 backdrop-blur-lg">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
           <a href="#home" className="flex items-center gap-2 font-semibold">
@@ -151,7 +151,7 @@ export default function PortfolioDark() {
         </div>
       </header>
 
-      {/* HERO */}
+      
       <section id="home" className="relative overflow-hidden">
         <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-4 py-16 md:grid-cols-2 md:py-24">
           <div>
@@ -182,14 +182,10 @@ export default function PortfolioDark() {
             </div>
           </div>
 
-          {/* Profile image with neon ring */}
-      {/* Profile image with rotating neon aura */}
+         
 <div className="relative mx-auto h-64 w-64 md:h-72 md:w-72">
-  {/* Outer spinning gradient ring */}
   <div className="absolute inset-0 rounded-full p-[3px] animate-spin-slow bg-gradient-to-tr from-pink-500 via-purple-500 to-blue-500">
-    {/* Glow layer */}
     <div className="absolute inset-0 rounded-full animate-pulse-glow"></div>
-    {/* Inner background + image */}
     <div className="relative h-full w-full rounded-full bg-[#0b1018] p-1">
       <img
         alt="Pratibha Sharma"
@@ -203,7 +199,6 @@ export default function PortfolioDark() {
         </div>
       </section>
 
-      {/* SERVICES */}
       <section id="services" className="border-t border-white/5 py-16 md:py-20">
         <div className="mx-auto max-w-6xl px-4">
           <div className="mb-8 flex items-end justify-between">
@@ -232,7 +227,6 @@ export default function PortfolioDark() {
         </div>
       </section>
 
-      {/* SKILLS */}
       <section id="skills" className="border-t border-white/5 py-16 md:py-20">
         <div className="mx-auto max-w-6xl px-4">
           <SectionTitle>Skills</SectionTitle>
@@ -271,7 +265,6 @@ export default function PortfolioDark() {
         </div>
       </section>
 
-      {/* PROJECTS */}
       <section id="projects" className="border-t border-white/5 py-16 md:py-20">
         <div className="mx-auto max-w-6xl px-4">
           <div className="mb-8 flex items-center justify-between">
