@@ -95,7 +95,7 @@ export default function Projects() {
 
   return (
     <section id="projects" className="border-t border-white/10 py-16 md:py-20">
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-7xl px-3">
         <SectionTitle className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">
           My Projects
         </SectionTitle>
