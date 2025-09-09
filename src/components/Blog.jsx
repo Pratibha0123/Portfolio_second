@@ -14,11 +14,11 @@ export default function Blog() {
     autoplaySpeed: 2500,
     pauseOnHover: true,
     responsive: [
-      { breakpoint: 1280, settings: { slidesToShow: 2 } },
-      { breakpoint: 1024, settings: { slidesToShow: 2 } },
-      { breakpoint: 768, settings: { slidesToShow: 1 } },
-      { breakpoint: 600, settings: { slidesToShow: 1, centerMode: true, centerPadding: "40px" } },
-      { breakpoint: 480, settings: { slidesToShow: 1, centerMode: true, centerPadding: "20px" } },
+      { breakpoint: 1280, settings: { slidesToShow: 2 } },  // large screens
+      { breakpoint: 1024, settings: { slidesToShow: 2 } },  // tablets landscape
+      { breakpoint: 768, settings: { slidesToShow: 1 } },   // tablets portrait
+      { breakpoint: 640, settings: { slidesToShow: 1 } },   // <= 640px always 1 card
+      { breakpoint: 480, settings: { slidesToShow: 1 } },   // small phones
     ],
   };
 

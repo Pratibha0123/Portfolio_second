@@ -10,7 +10,7 @@ export default function Projects() {
     dots: false,
     infinite: true,
     speed: 600,
-    slidesToShow: 3,
+    slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2500,
@@ -18,16 +18,23 @@ export default function Projects() {
       { breakpoint: 1280, settings: { slidesToShow: 2 } }, // large screens
       { breakpoint: 1024, settings: { slidesToShow: 2 } }, // tablets landscape
       { breakpoint: 768, settings: { slidesToShow: 1 } },  // tablets portrait
-      { breakpoint: 600, settings: { slidesToShow: 1, centerMode: true, centerPadding: "40px" } },
-      { breakpoint: 480, settings: { slidesToShow: 1, centerMode: true, centerPadding: "20px" } },
+      {
+        breakpoint: 640, // mobile
+        settings: {
+          slidesToShow: 1,
+          centerMode: false,   // disable centering
+          centerPadding: "0px" // full width
+        },
+      },
     ],
   };
 
   const renderProjectSlide = (project) => (
     <Card
       key={project.title}
-      className="group flex flex-col overflow-hidden rounded-xl border border-white/10 bg-gray-900/60 backdrop-blur-md shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 mx-3"
+      className="project-card group flex flex-col overflow-hidden rounded-xl border border-white/10 bg-gray-900/60 backdrop-blur-md shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 mx-3"
     >
+      {/* Image */}
       <div className="relative h-52 w-full overflow-hidden">
         <img
           src={project.image}
@@ -36,6 +43,7 @@ export default function Projects() {
         />
       </div>
 
+      {/* Content */}
       <div className="flex flex-col flex-1 p-5">
         <h3 className="mb-2 text-xl font-semibold text-white group-hover:text-blue-400 transition-colors duration-300">
           {project.title}
@@ -44,6 +52,7 @@ export default function Projects() {
           {project.description}
         </p>
 
+        {/* Links */}
         <div className="mt-5 flex gap-3">
           {project.demo && (
             <a
@@ -73,15 +82,18 @@ export default function Projects() {
   return (
     <section id="projects" className="border-t border-white/10 py-16 md:py-20">
       <div className="mx-auto max-w-7xl px-6">
+        {/* Section Title */}
         <SectionTitle className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">
           My Projects
         </SectionTitle>
 
+        {/* First Projects Row */}
         <Slider {...sliderSettings}>{projects1.map(renderProjectSlide)}</Slider>
 
         <div className="my-12"></div>
 
-        <Slider {...sliderSettings}>{projects2.map(renderProjectSlide)}</Slider>
+        {/* Second Projects Row */}
+        {/* <Slider {...sliderSettings}>{projects2.map(renderProjectSlide)}</Slider> */}
       </div>
     </section>
   );
