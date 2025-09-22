@@ -38,26 +38,23 @@ export default function Projects() {
     autoplay: true,
     autoplaySpeed: 2000,
     centerMode: false,
-    centerPadding: "0px", 
-    arrows: false, 
+    centerPadding: "0px",
+    arrows: false,
   };
 
   const renderProjectSlide = (project) => (
     <Card
       key={project.title}
-      className="group flex flex-col overflow-hidden rounded-xl border border-white/10 bg-gray-900/60 backdrop-blur-md shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 mx-3"
+      className="group flex flex-col overflow-hidden rounded-xl border border-white/10 bg-gray-900/60 backdrop-blur-md shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 mx-3 h-[450px]"
     >
-      
-     <div className="relative w-full overflow-hidden flex items-center justify-center bg-black">
-  <img
-    src={project.image}
-    alt={project.title}
-    className="max-h-60 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
-  />
-</div>
+      <div className="relative w-full h-60  bg-black">
+        <img
+          src={project.image}
+          alt={project.title}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+      </div>
 
-
-   
       <div className="flex flex-col flex-1 p-5">
         <h3 className="mb-2 text-xl font-semibold text-white group-hover:text-blue-400 transition-colors duration-300">
           {project.title}
@@ -66,7 +63,6 @@ export default function Projects() {
           {project.description}
         </p>
 
-        
         <div className="mt-5 flex gap-3">
           {project.demo && (
             <a
@@ -93,6 +89,9 @@ export default function Projects() {
     </Card>
   );
 
+  // Ensure projects1 is defined and an array
+  const projects = Array.isArray(projects1) ? projects1 : [];
+
   return (
     <section id="projects" className="border-t border-white/10 py-16 md:py-20">
       <div className="mx-auto max-w-7xl px-3">
@@ -100,14 +99,12 @@ export default function Projects() {
           My Projects
         </SectionTitle>
 
-        {isMobile ? (
-          <Slider {...mobileSliderSettings}>
-            {projects1.map(renderProjectSlide)}
+        {projects.length > 0 ? (
+          <Slider {...(isMobile ? mobileSliderSettings : desktopSliderSettings)}>
+            {projects.map(renderProjectSlide)}
           </Slider>
         ) : (
-          <Slider {...desktopSliderSettings}>
-            {projects1.map(renderProjectSlide)}
-          </Slider>
+          <p className="text-center text-gray-400">No projects available.</p>
         )}
       </div>
     </section>
