@@ -32,19 +32,19 @@ export default function About() {
             Hello! I`m <span className="text-indigo-400">Pratibha Sharma</span>
           </h3>
           <p className="text-gray-300 leading-relaxed">
-            I’m a <span className="text-indigo-400">Frontend Developer & UI Designer</span> 
+            I’m a <span className="text-indigo-400">Frontend Developer & UI Designer </span> 
             with a Computer Science Engineering background. I specialize in 
             <span className="text-indigo-400"> React.js, JavaScript, HTML, CSS</span>, 
-            and design tools like <span className="text-indigo-400">Figma</span>, where I create 
+             and design tools like <span className="text-indigo-400">Figma</span>, where I create 
             clean, responsive, and user-friendly web applications.
           </p>
           <p className="text-gray-300 leading-relaxed">
-            Currently, I work as a <span className="text-indigo-400">UI Tester and Frontend Developer</span> 
+            Currently, I work as a <span className="text-indigo-400">UI Tester and Frontend Developer </span> 
             at Shwetak Global Solutions Pvt. Ltd., collaborating with backend teams to deliver 
             seamless, high-performance user experiences.
           </p>
           <p className="text-gray-300 leading-relaxed">
-            I enjoy exploring new frameworks like <span className="text-indigo-400">Next.js</span>, 
+            I enjoy exploring new frameworks like <span className="text-indigo-400">Next.js </span>, 
             working on creative projects, and blending technical precision with design thinking 
             to craft impactful digital solutions.
           </p>
