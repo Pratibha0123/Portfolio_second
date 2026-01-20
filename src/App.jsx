@@ -13,6 +13,7 @@ import Contact from "./components/Contact";
 import About from "./components/About";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Projectpage from "./components/Projectpage";
 
 const App = () => {
   React.useEffect(() => {
@@ -24,7 +25,7 @@ const App = () => {
   }, []);
 
   return (
-    <div className="overflow-hidden px-4 sm:px-6 lg:px-12 bg-[#0b1018]">
+    <div className="overflow-x-hidden px-4 sm:px-6 lg:px-12 bg-[#0b1018]">
       <Navbar />
       <Routes>
         <Route path="/" element={<PortfolioDark />} />
@@ -32,6 +33,7 @@ const App = () => {
         <Route path="/services" element={<Services />} />
         <Route path="/skill" element={<Skills />} />
         <Route path="/skills" element={<SkillPage />} />
+        <Route path="/project" element={<Projectpage />} />
 
         <Route path="/projects" element={<Projects />} />
         <Route path="/blog" element={<Blog />} />

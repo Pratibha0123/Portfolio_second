@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Slider from "react-slick";
 import { blogs } from "../data/blogs";
+import { Calendar, User, ArrowRight } from "lucide-react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -8,78 +9,110 @@ export default function Blog() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const checkScreen = () => setIsMobile(window.innerWidth <= 580);
+    const checkScreen = () => setIsMobile(window.innerWidth <= 768);
     checkScreen();
     window.addEventListener("resize", checkScreen);
     return () => window.removeEventListener("resize", checkScreen);
   }, []);
 
-  const desktopSettings = {
-    dots: false,
+  const sliderSettings = {
+    dots: true,
     infinite: true,
-    speed: 600,
+    speed: 800,
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2500,
+    autoplaySpeed: 4000,
     pauseOnHover: true,
+    arrows: false,
+    className: "center",
+    centerMode: false,
     responsive: [
-      { breakpoint: 1280, settings: { slidesToShow: 2 } },
-      { breakpoint: 1024, settings: { slidesToShow: 2 } },
-      { breakpoint: 768, settings: { slidesToShow: 1 } },
+      {
+        breakpoint: 1280,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerMode: false,
+          dots: true,
+        },
+      },
     ],
   };
 
-  const mobileSettings = {
-    dots: true,
-    infinite: true,
-    speed: 600,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2500,
-    arrows: false, 
-    centerMode: false,
-    centerPadding: "0px",
-  };
-
   const renderBlogCard = (blog, index) => (
-    <div key={index} className="px-3">
-      <div className="bg-Rich-Black rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
-           <div className="relative w-full overflow-hidden flex items-center justify-center bg-black">
+    <div key={index} className="px-3 py-4 h-full">
+      <div className="group h-full flex flex-col bg-[#11161d] border border-white/5 rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-blue-900/10 transition-all duration-300 hover:-translate-y-1">
+
+        {/* Image Container */}
+        <div className="relative h-56 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-t from-[#11161d] to-transparent opacity-60 z-10" />
           <img
             src={blog.image}
             alt={blog.title}
-            className="w-full h-60 object-cover transition-transform duration-500 group-hover:scale-105"
+            className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
           />
+          <div className="absolute top-4 left-4 z-20">
+            <span className="px-3 py-1 text-xs font-semibold bg-blue-600/90 text-white rounded-full backdrop-blur-sm">
+              Next.js
+            </span>
+          </div>
         </div>
 
-        <div className="p-4">
-          <h3 className="text-lg font-semibold text-white truncate">
+        {/* Content */}
+        <div className="flex flex-col flex-grow p-6">
+          <div className="flex items-center gap-4 text-xs text-gray-400 mb-4">
+            <div className="flex items-center gap-1">
+              <Calendar size={14} />
+              <span>Oct 24, 2025</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <User size={14} />
+              <span>Pratibha</span>
+            </div>
+          </div>
+
+          <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors line-clamp-2">
             {blog.title}
           </h3>
-          <p className="text-gray-400 text-sm mt-2 line-clamp-3 overflow-hidden">
+
+          <p className="text-gray-400 text-sm leading-relaxed mb-6 line-clamp-3">
             {blog.excerpt}
           </p>
-          <button className="mt-4 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-500 transition text-center">
-            Read More
-          </button>
+
+          <div className="mt-auto">
+            <button className="flex items-center gap-2 text-sm font-semibold text-white/80 group-hover:text-blue-400 transition-colors group-hover:gap-3">
+              Read Article <ArrowRight size={16} />
+            </button>
+          </div>
         </div>
       </div>
     </div>
   );
 
   return (
-    <section className="border-white/5 py-12 px-6">
-      <h2 className="text-3xl font-bold text-white mb-8 text-center">
-        Latest Blogs
-      </h2>
+    <section id="blog" className="py-20 bg-[#0b1018] border-t border-white/5 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 mb-4">
+            Recent Articles
+          </h2>
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            Thoughts on development, design, and the future of tech.
+          </p>
+        </div>
 
-      {isMobile ? (
-        <Slider {...mobileSettings}>{blogs.map(renderBlogCard)}</Slider>
-      ) : (
-        <Slider {...desktopSettings}>{blogs.map(renderBlogCard)}</Slider>
-      )}
+        <Slider {...sliderSettings}>
+          {blogs.map(renderBlogCard)}
+        </Slider>
+      </div>
     </section>
   );
 }
