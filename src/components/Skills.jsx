@@ -13,7 +13,7 @@ export default function Skills() {
             <p className="mb-4 text-sm uppercase tracking-wider text-white/60">
               Frontend
             </p>
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+            <div className="flex flex-wrap gap-3">
               {skillsPrimary.map((sk) => (
                 <div
                   key={sk.label}
@@ -30,7 +30,7 @@ export default function Skills() {
             <p className="mb-4 text-sm uppercase tracking-wider text-white/60">
               Backend & Tools
             </p>
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+            <div className="flex flex-wrap gap-3">
               {skillsSecondary.map((sk) => (
                 <div
                   key={sk.label}

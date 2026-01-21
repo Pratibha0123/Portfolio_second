@@ -46,7 +46,7 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="bg-[#11161d]/80 backdrop-blur-xl border border-white/5 rounded-2xl p-8 sm:p-10 shadow-2xl">
+        <div className="bg-[#11161d]/80 backdrop-blur-xl border border-white/5 rounded-2xl p-6 sm:p-10 shadow-2xl">
           <form onSubmit={handleSubmit} className="space-y-6">
 
             {/* Name Input */}
@@ -60,7 +60,7 @@ export default function Contact() {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Your Name"
-                className="w-full bg-black/20 border border-white/10 rounded-xl px-12 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 transition-all"
+                className="w-full bg-black/20 border border-white/10 rounded-xl px-10 sm:px-12 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 transition-all"
                 required
               />
             </div>
