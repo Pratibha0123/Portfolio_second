@@ -29,8 +29,8 @@ export default function Projects() {
     responsive: [
       { breakpoint: 1280, settings: { slidesToShow: 2 } },
       { breakpoint: 1024, settings: { slidesToShow: 2 } },
-      { breakpoint: 768, settings: { slidesToShow: 1, centerMode: true, centerPadding: "20px" } },
-      { breakpoint: 480, settings: { slidesToShow: 1, centerMode: false } },
+      { breakpoint: 768, settings: { slidesToShow: 1, centerMode: false, arrows: false } },
+      { breakpoint: 480, settings: { slidesToShow: 1, centerMode: false, arrows: false } },
     ],
     appendDots: dots => (
       <div style={{ bottom: "-40px" }}>
@@ -45,7 +45,7 @@ export default function Projects() {
   const renderProjectSlide = (project, index) => (
     <div key={project.title} className="px-3 py-6 h-full">
       <div className="
-        group relative flex flex-col h-[500px] 
+        group relative flex flex-col h-[450px] sm:h-[500px] w-full
         bg-[#11161d]/80 backdrop-blur-sm rounded-2xl overflow-hidden 
         border border-white/10 shadow-lg 
         transition-all duration-500 
@@ -53,7 +53,7 @@ export default function Projects() {
         hover:-translate-y-2
       ">
         {/* Image Area */}
-        <div className="relative w-full h-56 overflow-hidden flex-shrink-0">
+        <div className="relative w-full h-48 sm:h-56 overflow-hidden flex-shrink-0">
           <div className="absolute inset-0 bg-gradient-to-t from-[#11161d] via-transparent to-transparent opacity-80 z-10" />
 
           <img
@@ -75,7 +75,7 @@ export default function Projects() {
         </div>
 
         {/* Content Area */}
-        <div className="flex flex-col flex-grow p-6 pt-4">
+        <div className="flex flex-col flex-grow p-5 sm:p-6 pt-4">
           <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors line-clamp-1">
             {project.title.replace(/[_-]/g, ' ')}
           </h3>

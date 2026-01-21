@@ -76,7 +76,7 @@ export default function ProjectPage() {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {filtered.length === 0 ? (
             <div className="col-span-full py-32 text-center flex flex-col items-center justify-center opacity-50">
               <Layers className="w-16 h-16 mb-4 text-slate-600" />
@@ -112,7 +112,7 @@ function ProjectCard({ project, index }) {
       ">
 
         {/* Image Container */}
-        <div className="relative w-full h-64 overflow-hidden">
+        <div className="relative w-full h-48 sm:h-64 overflow-hidden">
           {/* Overlay Gradient */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#11161d] via-transparent to-transparent z-10 opacity-80" />
 
@@ -136,7 +136,7 @@ function ProjectCard({ project, index }) {
         </div>
 
         {/* Content */}
-        <div className="flex flex-col flex-grow p-6 pt-2">
+        <div className="flex flex-col flex-grow p-5 sm:p-6 pt-2">
           <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors line-clamp-1" title={project.title}>
             {project.title.replace(/[_-]/g, ' ')}
           </h3>
