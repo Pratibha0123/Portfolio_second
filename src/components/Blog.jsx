@@ -19,7 +19,7 @@ export default function Blog() {
     dots: true,
     infinite: true,
     speed: 800,
-    slidesToShow: 3,
+    slidesToShow: isMobile ? 1 : 3,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 4000,
@@ -36,7 +36,23 @@ export default function Blog() {
         },
       },
       {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
         breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerMode: false,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 640,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -52,7 +68,7 @@ export default function Blog() {
       <div className="group h-full flex flex-col bg-[#11161d] border border-white/5 rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-blue-900/10 transition-all duration-300 hover:-translate-y-1">
 
         {/* Image Container */}
-        <div className="relative h-56 overflow-hidden">
+        <div className="relative h-48 sm:h-56 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-t from-[#11161d] to-transparent opacity-60 z-10" />
           <img
             src={blog.image}
@@ -67,7 +83,7 @@ export default function Blog() {
         </div>
 
         {/* Content */}
-        <div className="flex flex-col flex-grow p-6">
+        <div className="flex flex-col flex-grow p-5 sm:p-6">
           <div className="flex items-center gap-4 text-xs text-gray-400 mb-4">
             <div className="flex items-center gap-1">
               <Calendar size={14} />
@@ -101,7 +117,7 @@ export default function Blog() {
     <section id="blog" className="py-20 bg-[#0b1018] border-t border-white/5 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 mb-4">
             Recent Articles
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
