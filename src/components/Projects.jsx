@@ -19,7 +19,7 @@ export default function Projects() {
     dots: true,
     infinite: true,
     speed: 800,
-    slidesToShow: 3,
+    slidesToShow: isMobile ? 1 : 3,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 4000,
@@ -30,7 +30,7 @@ export default function Projects() {
       { breakpoint: 1280, settings: { slidesToShow: 2 } },
       { breakpoint: 1024, settings: { slidesToShow: 2 } },
       { breakpoint: 768, settings: { slidesToShow: 1, centerMode: false, arrows: false } },
-      { breakpoint: 480, settings: { slidesToShow: 1, centerMode: false, arrows: false } },
+      { breakpoint: 640, settings: { slidesToShow: 1, centerMode: false, arrows: false } },
     ],
     appendDots: dots => (
       <div style={{ bottom: "-40px" }}>
