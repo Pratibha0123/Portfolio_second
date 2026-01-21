@@ -20,7 +20,7 @@ const nav = [
   { label: "Services", href: "services" },
   { label: "Skills", href: "skills" },
   { label: "Projects", href: "projects" },
-  { label: "Blog", href: "blog" },
+  // { label: "Blog", href: "blog" },
   { label: "Contact", href: "contact" },
 ];
 
@@ -95,17 +95,17 @@ const projects = [
   },
 ];
 
-const posts = [
-  {
-    title: "How AI can change the face of Web Development",
-    image: "https://placehold.co/640x360/png?text=AI+%26+Web+Dev",
-  },
-  {
-    title: "The Future of UI/UX and AI",
-    image: "https://placehold.co/640x360/png?text=UI%2FUX+%2B+AI",
-  },
-  { title: "Cloud Computing Essentials", image: "https://placehold.co/640x360/png?text=Cloud" },
-];
+// const posts = [
+//   {
+//     title: "How AI can change the face of Web Development",
+//     image: "https://placehold.co/640x360/png?text=AI+%26+Web+Dev",
+//   },
+//   {
+//     title: "The Future of UI/UX and AI",
+//     image: "https://placehold.co/640x360/png?text=UI%2FUX+%2B+AI",
+//   },
+//   { title: "Cloud Computing Essentials", image: "https://placehold.co/640x360/png?text=Cloud" },
+// ];
 
 
 // eslint-disable-next-line react/prop-types
@@ -302,7 +302,7 @@ export default function PortfolioDark() {
       </section>
 
      
-      <section id="blog" className="border-t border-white/5 py-16 md:py-20">
+      {/* <section id="blog" className="border-t border-white/5 py-16 md:py-20">
         <div className="mx-auto max-w-6xl px-4">
           <div className="mb-8 flex items-center justify-between">
             <SectionTitle>Blog</SectionTitle>
@@ -319,7 +319,7 @@ export default function PortfolioDark() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
     
       <section id="contact" className="border-t border-white/5 py-16 md:py-20">

@@ -19,7 +19,7 @@ export default function Projects() {
     dots: true,
     infinite: true,
     speed: 800,
-    slidesToShow: isMobile ? 1,
+    slidesToShow: isMobile ? 1 : 3,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 4000,

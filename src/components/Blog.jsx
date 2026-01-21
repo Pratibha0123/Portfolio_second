@@ -65,7 +65,7 @@ export default function Blog() {
 
   const renderBlogCard = (blog, index) => (
     <div key={index} className="px-3 py-4 h-full">
-      <div className="group h-full flex flex-col bg-[#11161d] border border-white/5 rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-blue-900/10 transition-all duration-300 hover:-translate-y-1">
+      <div className="group flex flex-col h-[450px] sm:h-[500px] bg-[#11161d] border border-white/5 rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-blue-900/10 transition-all duration-300 hover:-translate-y-1">
 
         {/* Image Container */}
         <div className="relative h-48 sm:h-56 overflow-hidden">
