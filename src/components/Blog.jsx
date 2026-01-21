@@ -99,7 +99,7 @@ export default function Blog() {
 
   return (
     <section id="blog" className="py-20 bg-[#0b1018] border-t border-white/5 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 mb-4">
             Recent Articles

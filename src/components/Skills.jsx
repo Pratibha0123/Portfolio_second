@@ -5,7 +5,7 @@ import { skillsPrimary, skillsSecondary } from "../data/skills";
 export default function Skills() {
   return (
     <section id="skills" className="border-t border-white/5 py-16 md:py-20">
-      <div className="mx-auto max-w-6xl px-4">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionTitle>Skills</SectionTitle>
 
         <div className="mt-8 grid gap-6 md:grid-cols-2">

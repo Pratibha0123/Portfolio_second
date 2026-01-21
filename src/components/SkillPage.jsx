@@ -6,14 +6,14 @@ import {
   Code,
   Server,
   Database,
- Brain,
+  Brain,
   Terminal,
- 
+
   PenTool,
 } from "lucide-react";
 
 const skills = [
-  
+
   {
     title: "Frontend",
     color: "#6366f1", // indigo-400
@@ -92,7 +92,7 @@ export default function SkillPage() {
       id="skills"
       className="border-t border-white/5 py-20 bg-[#0b1018] text-white"
     >
-      <div className="mx-auto max-w-6xl px-4">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionTitle>My Skills</SectionTitle>
 
         <p className="mt-4 text-center text-white/60 max-w-2xl mx-auto">

@@ -25,7 +25,7 @@ const App = () => {
   }, []);
 
   return (
-    <div className="overflow-x-hidden px-4 sm:px-6 lg:px-12 bg-[#0b1018]">
+    <div className="overflow-x-hidden w-full bg-[#0b1018]">
       <Navbar />
       <Routes>
         <Route path="/" element={<PortfolioDark />} />

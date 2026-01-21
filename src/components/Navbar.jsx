@@ -8,7 +8,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/5 bg-[#0b1018]/70 backdrop-blur-lg">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 py-4">
         <NavLink to="/" className="flex items-center gap-2 font-semibold text-white">
           Pratibha Sharma
         </NavLink>
