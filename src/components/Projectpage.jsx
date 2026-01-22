@@ -1,101 +1,11 @@
 // components/ProjectPage.jsx
 "use client";
-import React, { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
+import PropTypes from "prop-types";
 import { projects1 } from "../data/projects";
 import { ExternalLink, Github, Layers, Sparkles } from "lucide-react";
 
 const CATEGORIES = ["All", "Nextjs", "React JS", "HTML", "Django", "Figma"];
-
-export default function ProjectPage() {
-  const [active, setActive] = useState("All");
-
-  // Filter logic
-  const filtered = useMemo(() => {
-    if (active === "All") return projects1;
-    return projects1.filter(
-      (p) => p.category?.toLowerCase() === active.toLowerCase()
-    );
-  }, [active]);
-
-  return (
-    <section className="relative w-full min-h-screen bg-[#0b1018] overflow-hidden py-24">
-      {/* Background Ambience */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-blue-600/20 rounded-full blur-[120px] opacity-40 animate-pulse" />
-        <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-purple-600/20 rounded-full blur-[120px] opacity-40 animate-pulse delay-1000" />
-        <div className="absolute top-[40%] left-[50%] -translate-x-1/2 w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[100px] opacity-30" />
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header Section */}
-        <div
-          className="text-center mb-16 space-y-4"
-          data-aos="fade-down"
-        >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium mb-4">
-            <Sparkles size={16} />
-            <span>My Creative Works</span>
-          </div>
-
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-slate-400 tracking-tight">
-            Featured Projects
-          </h2>
-
-          <p className="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-            Discover a portfolio of high-performance web applications and designs,
-            crafted with precision and modern technologies.
-          </p>
-        </div>
-
-        {/* Filter Tabs */}
-        <div
-          className="sticky top-24 z-30 mb-16 flex justify-center"
-          data-aos="fade-up"
-          data-aos-delay="100"
-        >
-          <div className="flex flex-wrap justify-center gap-2 p-1.5 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full shadow-2xl">
-            {CATEGORIES.map((cat) => {
-              const isActive = active.toLowerCase() === cat.toLowerCase();
-              return (
-                <button
-                  key={cat}
-                  onClick={() => setActive(cat)}
-                  className={`
-                    relative px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ease-out
-                    ${isActive
-                      ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-[0_0_20px_rgba(37,99,235,0.4)] scale-105"
-                      : "text-slate-400 hover:text-white hover:bg-white/5"
-                    }
-                  `}
-                >
-                  {cat}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {filtered.length === 0 ? (
-            <div className="col-span-full py-32 text-center flex flex-col items-center justify-center opacity-50">
-              <Layers className="w-16 h-16 mb-4 text-slate-600" />
-              <p className="text-xl text-slate-500">No projects found in this category.</p>
-            </div>
-          ) : (
-            filtered.map((project, index) => (
-              <ProjectCard
-                key={`${project.title}-${index}`}
-                project={project}
-                index={index}
-              />
-            ))
-          )}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function ProjectCard({ project, index }) {
   return (
@@ -205,5 +115,108 @@ function ProjectCard({ project, index }) {
         <div className="absolute inset-0 rounded-2xl border border-transparent group-hover:border-blue-500/30 pointer-events-none transition-colors duration-500" />
       </div>
     </div>
+  );
+}
+
+ProjectCard.propTypes = {
+  project: PropTypes.shape({
+    image: PropTypes.string,
+    title: PropTypes.string,
+    category: PropTypes.string,
+    description: PropTypes.string,
+    demo: PropTypes.string,
+    code: PropTypes.string,
+  }).isRequired,
+  index: PropTypes.number.isRequired,
+};
+
+export default function ProjectPage() {
+  const [active, setActive] = useState("All");
+
+  // Filter logic
+  const filtered = useMemo(() => {
+    if (active === "All") return projects1;
+    return projects1.filter(
+      (p) => p.category?.toLowerCase() === active.toLowerCase()
+    );
+  }, [active]);
+
+  return (
+    <section className="relative w-full min-h-screen bg-[#0b1018] overflow-hidden py-24">
+      {/* Background Ambience */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-blue-600/20 rounded-full blur-[120px] opacity-40 animate-pulse" />
+        <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-purple-600/20 rounded-full blur-[120px] opacity-40 animate-pulse delay-1000" />
+        <div className="absolute top-[40%] left-[50%] -translate-x-1/2 w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[100px] opacity-30" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header Section */}
+        <div
+          className="text-center mb-16 space-y-4"
+          data-aos="fade-down"
+        >
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium mb-4">
+            <Sparkles size={16} />
+            <span>My Creative Works</span>
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-slate-400 tracking-tight">
+            Featured Projects
+          </h2>
+
+          <p className="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+            Discover a portfolio of high-performance web applications and designs,
+            crafted with precision and modern technologies.
+          </p>
+        </div>
+
+        {/* Filter Tabs */}
+        <div
+          className="sticky top-24 z-30 mb-16 flex justify-center"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <div className="flex flex-wrap justify-center gap-2 p-1.5 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full shadow-2xl">
+            {CATEGORIES.map((cat) => {
+              const isActive = active.toLowerCase() === cat.toLowerCase();
+              return (
+                <button
+                  key={cat}
+                  onClick={() => setActive(cat)}
+                  className={`
+                    relative px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ease-out
+                    ${isActive
+                      ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-[0_0_20px_rgba(37,99,235,0.4)] scale-105"
+                      : "text-slate-400 hover:text-white hover:bg-white/5"
+                    }
+                  `}
+                >
+                  {cat}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {filtered.length === 0 ? (
+            <div className="col-span-full py-32 text-center flex flex-col items-center justify-center opacity-50">
+              <Layers className="w-16 h-16 mb-4 text-slate-600" />
+              <p className="text-xl text-slate-500">No projects found in this category.</p>
+            </div>
+          ) : (
+            filtered.map((project, index) => (
+              <ProjectCard
+                key={`${project.title}-${index}`}
+                project={project}
+                index={index}
+              />
+            ))
+          )}
+        </div>
+      </div>
+    </section>
   );
 }

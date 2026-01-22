@@ -65,8 +65,8 @@ const Services = () => {
               </p>
 
               <div className="flex items-center text-sm font-medium text-white/40 group-hover:text-white transition-colors">
-                <span>Learn more</span>
-                <ArrowRight size={16} className="ml-2 transform group-hover:translate-x-1 transition-transform" />
+                {/* <span>Learn more</span>
+                <ArrowRight size={16} className="ml-2 transform group-hover:translate-x-1 transition-transform" /> */}
               </div>
             </div>
           ))}

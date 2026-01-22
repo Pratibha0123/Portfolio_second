@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import AboutImage from "../assets/About.jpg";
 import ResumePDF from "../assets/Full Stack Developer & UI Designer.pdf";
 
@@ -57,12 +58,12 @@ export default function About() {
               >
                 Download Resume
               </a>
-              <a
-                href="/contact"
+              <Link
+                to="/contact"
                 className="px-6 py-3 rounded-lg border border-indigo-500 text-indigo-400 font-medium hover:bg-indigo-500 hover:text-white hover:-translate-y-1 transition duration-300"
               >
                 Contact Me
-              </a>
+              </Link>
             </div>
           </div>
         </div>

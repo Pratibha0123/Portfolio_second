@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import { projects1 } from "../data/projects";
 import { ExternalLink, Github, ArrowRight, Sparkles } from "lucide-react";
@@ -37,12 +38,12 @@ export default function Projects() {
         <ul className="flex justify-center gap-2"> {dots} </ul>
       </div>
     ),
-    customPaging: i => (
+    customPaging: () => (
       <div className="w-2.5 h-2.5 rounded-full bg-slate-600 hover:bg-blue-500 transition-all cursor-pointer" />
     )
   };
 
-  const renderProjectSlide = (project, index) => (
+  const renderProjectSlide = (project) => (
     <div key={project.title} className="px-3 py-6 h-full">
       <div className="
         group relative flex flex-col h-[450px] sm:h-[500px] w-full
@@ -155,8 +156,8 @@ export default function Projects() {
             Each project represents a unique challenge and solution.
           </p>
 
-          <a
-            href="/project"
+          <Link
+            to="/project"
             className="
               inline-flex items-center gap-2 px-8 py-3 rounded-full 
               bg-white/5 border border-white/10 text-white font-semibold 
@@ -165,14 +166,14 @@ export default function Projects() {
             "
           >
             View All Projects <ArrowRight size={18} />
-          </a>
+          </Link>
         </div>
 
         {/* Projects Slider */}
         <div data-aos="fade-up" data-aos-delay="200">
           {projects.length > 0 ? (
             <Slider {...sliderSettings} className="gap-6 pb-12">
-              {projects.map((project, index) => renderProjectSlide(project, index))}
+              {projects.map((project) => renderProjectSlide(project))}
             </Slider>
           ) : (
             <p className="text-center text-gray-400">No projects available.</p>
